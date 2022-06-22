@@ -6,7 +6,7 @@ function guessinggame {
 
 	list=$(ls | wc -l)
 
-	echo -n "How many files are present in the directory: "
+	echo -n "How many files are present in the current directory: "
 	read files
 
 	while [[ $list -ne $files || $list -eq $files ]]
