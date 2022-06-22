@@ -6,22 +6,24 @@ function guessinggame {
 
 	list=$(ls | wc -l)
 
-	files=0
+	echo -n "How many files are present in the directory: "
+	read files
 
-	while [[ $list -ne $files ]]
+	while [[ $list -ne $files || $list -eq $files ]]
 	do
-		echo -n "How many files are present in the directory: "
-		read files
-
 		if [[ $list -eq $files ]]
 		then
 			echo "Congratulation, You have guessed right."
+			break
 		else
 			if [[ $list -gt $files ]]
 			then
-				echo "Try again. Enter a larger  number."
+				echo -n "Try again. Enter a larger  number: "
+				read files
 			else
-				echo "Try again. Enter a smaller  number."
+				echo -n "Try again. Enter a smaller  number: "
+				read files
+				
 			fi
 		fi
 	done
